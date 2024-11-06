@@ -90,9 +90,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shnk = {
     isNormalUser = true;
-    description = "shane kenny";
+    description = "shnk";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      firefox
     #  thunderbird
     ];
   };
@@ -117,19 +118,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
-    alacritty
-    neofetch
-    htop
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
     gcc
     clang
-    rustup
+    git
+    htop
+    neovim
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
     tmux
-    fish
+    alacritty
   ];
-
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -138,6 +137,13 @@
   #   enableSSHSupport = true;
   # };
 
+  # Cannot figure out how to set this in home-manager
+  # so super annoying
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+  
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

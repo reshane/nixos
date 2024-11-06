@@ -2,7 +2,8 @@
 
 {
   imports = [
-   ../../modules/home-manager/tmux.nix 
+    ../../modules/home-manager/tmux.nix 
+        # ../../modules/home-manager/alacritty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -20,7 +21,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    firefox
+    alacritty
+    neofetch
+    tmux
+    fish
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -76,4 +82,31 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  
+  # nvim default editor
+  # keeping this here even though if I take it out of
+  # configuration.nix it defaults back to nano :(
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+  programs.alacritty = {
+      enable = true;
+      settings = {
+          terminal.shell.program = "${pkgs.fish}/bin/fish";
+          env.TERM = "screen-256color";
+          window = {
+              opacity = 1.0;
+              decorations = "none";
+              dimensions = {
+                  columns = 0;
+                  lines = 0;
+              };
+              padding = {
+                  x = 2;
+                  y = 2;
+              };
+          };
+      };
+  };
 }
