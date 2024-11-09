@@ -87,6 +87,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.fish.enable = true;
+
+  users.defaultUserShell = pkgs.fish;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shnk = {
     isNormalUser = true;
@@ -127,6 +131,13 @@
     wget
     tmux
     alacritty
+    lld
+    cargo
+    rustc
+    openssl
+    pkg-config
+    trunk
+    rust-analyzer
   ];
   
   # Some programs need SUID wrappers, can be configured further or are

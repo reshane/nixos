@@ -82,7 +82,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
   # nvim default editor
   # keeping this here even though if I take it out of
   # configuration.nix it defaults back to nano :(
