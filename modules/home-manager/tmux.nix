@@ -39,7 +39,7 @@
             # Easier reload of config
             bind r source-file ~/.config/tmux/tmux.conf
   
-            set-option -g status-position top
+            # set-option -g status-position top
   
             # make Prefix p paste the buffer.
             unbind p

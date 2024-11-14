@@ -138,6 +138,7 @@
     pkg-config
     trunk
     rust-analyzer
+    file
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
